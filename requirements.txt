@@ -1,0 +1,9 @@
+tensorflow
+keras
+numpy<2
+matplotlib
+opencv-python-headless
+scikit-learn
+pandas
+Flask
+Werkzeug

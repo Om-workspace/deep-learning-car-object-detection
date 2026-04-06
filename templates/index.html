@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepVision | AI Car Detection</title>
+    <meta name="description" content="Advanced Car Recognition powered by ResNet50 Deep Learning Model.">
+    <!-- Modern Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Chart.js for beautiful interactive graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="background-animation"></div>
+
+    <div class="container glass-panel">
+        <header>
+            <h1><span class="highlight">AI Car Detection</span></h1>
+            <p>State-of-the-art Car Recognition Network</p>
+        </header>
+
+        <main>
+            <div class="upload-area" id="dropzone">
+                <input type="file" id="fileInput" accept="image/*" hidden>
+                <div class="upload-content">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p>Drag & Drop an image here</p>
+                    <button id="browseBtn" class="btn-primary">Browse Files</button>
+                </div>
+                <img id="imagePreview" class="hidden" alt="Uploaded Car Image Preview">
+            </div>
+
+            <div class="action-section">
+                <button id="predictBtn" class="btn-glow hidden">Analyze Image</button>
+            </div>
+
+            <div id="loader" class="hidden">
+                <div class="spinner"></div>
+                <p>Neural Network is processing...</p>
+            </div>
+
+            <div id="resultCard" class="glass-panel hidden">
+                <h2 id="resultLabel"></h2>
+                <div class="confidence-container">
+                    <p>AI Confidence Score</p>
+                    <div class="progress-bar">
+                        <div id="confidenceFill" class="progress-fill"></div>
+                    </div>
+                    <p id="confidenceText" class="confidence-text"></p>
+                </div>
+            </div>
+
+            <div class="metrics-section glass-panel">
+                <h2>Model Training Accuracy</h2>
+                <div style="position: relative; height:300px; width:100%">
+                    <canvas id="accuracyChart"></canvas>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Om Kithani. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
